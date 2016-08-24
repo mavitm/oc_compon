@@ -1,0 +1,27 @@
+fields:
+    title:
+        label: 'mavitm.compon::lang.compon.title'
+        oc.commentPosition: above
+        span: auto
+        required: 1
+        type: text
+    parent_id:
+            label: 'mavitm.compon::lang.compon.parent_id'
+            span: auto
+            required: 1
+            type: dropdown
+    carouselimages:
+        label: 'File upload'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        required: 1
+        type: fileupload
+    html_description:
+        label: 'mavitm.compon::lang.compon.description'
+        size: large
+        span: full
+        type: richeditor

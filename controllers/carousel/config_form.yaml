@@ -1,0 +1,11 @@
+name: Carousel
+modelClass: Mavitm\Compon\Models\Mtmdata
+form: $/mavitm/compon/models/mtmdata/parentForm.yaml
+defaultRedirect: mavitm/compon/carousel
+create:
+    redirect: 'mavitm/compon/carousel/update/:id'
+    redirectClose: mavitm/compon/carousel
+update:
+    redirect: mavitm/compon/carousel
+    redirectClose: mavitm/compon/carousel
+preview: {  }

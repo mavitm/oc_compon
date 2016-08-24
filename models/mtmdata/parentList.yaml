@@ -1,0 +1,35 @@
+columns:
+    id:
+        label: 'mavitm.compon::lang.compon.insert_id'
+        type: number
+        invisible: true
+        sortable: true
+    group:
+        label: 'mavitm.compon::lang.compon.group'
+        type: text
+        searchable: false
+        invisible: true
+        sortable: false
+    title:
+        label: 'mavitm.compon::lang.compon.title'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'mavitm.compon::lang.compon.added'
+        type: datetime
+        searchable: true
+        invisible: true
+        sortable: true
+    updated_at:
+        label: 'mavitm.compon::lang.compon.updated_at'
+        type: datetime
+        searchable: true
+        invisible: true
+        sortable: true
+    subCount:
+        label: 'mavitm.compon::lang.compon.subCount'
+        type: section
+    sublistBtn:
+        label: 'mavitm.compon::lang.compon.sublist'
+        type: section

@@ -1,0 +1,29 @@
+columns:
+    id:
+        label: 'mavitm.compon::lang.compon.insert_id'
+        type: number
+        invisible: false
+        sortable: true
+    parentColor:
+        label: 'mavitm.compon::lang.compon.parent_id'
+        type: section
+        invisible: true
+        sortable: false
+    groupStr:
+        label: 'mavitm.compon::lang.compon.group'
+        type: text
+        searchable: false
+        invisible: true
+        sortable: false
+    title:
+        label: 'mavitm.compon::lang.compon.title'
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'mavitm.compon::lang.compon.added'
+        type: datetime
+        searchable: true
+        invisible: false
+        sortable: true
+

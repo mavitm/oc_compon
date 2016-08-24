@@ -1,0 +1,11 @@
+name: Tab
+modelClass: Mavitm\Compon\Models\Mtmdata
+form: $/mavitm/compon/models/mtmdata/tabSubForm.yaml
+defaultRedirect: mavitm/compon/tab/sublist/:parent_id
+create:
+    redirect: 'mavitm/compon/tab/update/:id/:parent_id'
+    redirectClose: mavitm/compon/tab/sublist/:paren_id
+update:
+    redirect: mavitm/compon/tab
+    redirectClose: mavitm/compon/tab
+preview: {  }

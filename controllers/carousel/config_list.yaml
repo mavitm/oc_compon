@@ -1,0 +1,11 @@
+title: Carousel
+modelClass: Mavitm\Compon\Models\Mtmdata
+list: $/mavitm/compon/models/mtmdata/parentList.yaml
+recordUrl: 'mavitm/compon/carousel/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

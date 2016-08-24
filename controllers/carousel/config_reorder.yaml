@@ -1,0 +1,5 @@
+title: Carousel
+modelClass: Mavitm\Compon\Models\Mtmdata
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,16 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li>
+        <a href="<?= Backend::url('mavitm/compon/') ?>">
+            <?= e(trans('mavitm.compon::lang.plugin.name')) ?>
+        </a>
+    </li>
+    <li>
+        <a href="<?= Backend::url('mavitm/compon/accordion') ?>">
+            <?= e(trans('mavitm.compon::lang.accordion.tab')) ?>
+        </a>
+    </li>
+    <li><?= e(trans('mavitm.compon::lang.accordion.parent_title')) ?></li>
+</ul>
+<?php Block::endPut() ?>
+<?= $this->listRender("list") ?>

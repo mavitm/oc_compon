@@ -1,0 +1,45 @@
+{% set children = __SELF__.componChildren %}
+{% set panelColor = __SELF__.panelDefaultColor %}
+{% set accordionID = __SELF__.componUnique %}
+{% set x = 0 %}
+
+{% if __SELF__.componChildren %}
+
+    <div id="{{ accordionID }}" class="panel-group" aria-multiselectable="true" role="tablist">
+
+        {% for child in children %}
+
+            {% set openClose = 'out' %}
+
+            {% if x < 1 %}
+                {% set openClose = 'in' %}
+            {% endif %}
+
+            <div class="panel {{ panelColor }}">
+                <div id="heading{{ child.id }}" role="tab" class="panel-heading">
+                    <h4 class="panel-title">
+                        <a aria-controls="collapse{{ child.id }}"
+                           aria-expanded="true"
+                           data-parent="#{{ accordionID }}"
+                           data-toggle="collapse"
+                           role="button"
+                           href="#{{ accordionID }}{{ child.id }}">
+                            {{ child.title }}
+                        </a>
+                    </h4>
+                </div>
+                <div aria-labelledby="heading{{ child.id }}"
+                     id="{{ accordionID }}{{ child.id }}"
+                     role="tabpanel"
+                     class="collapse panel-collapse {{ openClose }}">
+                    <div class="panel-body"> {{ child.html_description|raw }} </div>
+                </div>
+            </div>
+
+            {% set x = x + 1 %}
+
+        {% endfor %}
+
+    </div>
+
+{% endif %}

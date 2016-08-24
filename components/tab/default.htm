@@ -1,0 +1,54 @@
+{% if __SELF__.componChildren %}
+
+    {% set children = __SELF__.componChildren %}
+    {% set tabID = __SELF__.componUnique %}
+    {% set x = 0 %}
+
+    <ul id="{{ tabID }}Ul" class="nav nav-tabs" role="tablist">
+        {% for child in children %}
+
+            {% set activeCss = 'noActive' %}
+            {% set ariaExpanded = 'false' %}
+
+            {% if x < 1 %}
+                {% set activeCss = 'active' %}
+                {% set ariaExpanded = 'true' %}
+            {% endif %}
+
+            {% set currentItemID = tabID ~ '_' ~ child.id %}
+
+            <li class="{{ activeCss }}" role="presentation">
+                <a id="{{ currentItemID }}-tab"
+                   aria-expanded="{{ ariaExpanded }}"
+                   aria-controls="{{ currentItemID }}"
+                   data-toggle="tab" role="tab"
+                   href="#{{ currentItemID }}">{{ child.title }}</a>
+            </li>
+
+            {% set x = x + 1 %}
+        {% endfor %}
+    </ul>
+
+    {% set x = 0 %}
+    <div id="{{ tabID }}Content" class="tab-content">
+        {% for child in children %}
+
+            {% set activeCss = 'noActive' %}
+            {% set openClose = 'out' %}
+
+            {% if x < 1 %}
+                {% set activeCss = 'active' %}
+                {% set openClose = 'in' %}
+            {% endif %}
+
+            {% set currentItemID = tabID ~ '_' ~ child.id %}
+
+            <div id="{{ currentItemID }}"
+                 class="tab-pane fade {{ activeCss }} {{ openClose }}"
+                 aria-labelledby="{{ currentItemID }}-tab" role="tabpanel"> {{ child.html_description|raw }} </div>
+
+            {% set x = x + 1 %}
+        {% endfor %}
+    </div>
+
+{% endif %}

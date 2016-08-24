@@ -1,0 +1,11 @@
+name: Accordion
+modelClass: Mavitm\Compon\Models\Mtmdata
+form: $/mavitm/compon/models/mtmdata/accordionSubForm.yaml
+defaultRedirect: mavitm/compon/accordion/sublist/:parent_id
+create:
+    redirect: 'mavitm/compon/accordion/update/:id/:parent_id'
+    redirectClose: mavitm/compon/accordion/sublist/:paren_id
+update:
+    redirect: mavitm/compon/accordion
+    redirectClose: mavitm/compon/accordion
+preview: {  }

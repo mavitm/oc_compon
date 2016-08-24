@@ -1,0 +1,51 @@
+{% if __SELF__.componChildren %}
+{% set children = __SELF__.componChildren %}
+{% set carouselID = __SELF__.componUnique %}
+{% set width = __SELF__.componWidth %}
+{% set height = __SELF__.componHeight %}
+{% set x = 0 %}
+
+<div id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        {% for child in children %}
+            {% set activeCss = 'noActive' %}
+            {% if x < 1 %}
+                {% set activeCss = 'active' %}
+            {% endif %}
+            <li data-target="#{{ carouselID }}" data-slide-to="{{ x }}" class="{{ activeCss }}"></li>
+            {% set x = x + 1 %}
+        {% endfor %}
+    </ol>
+
+    {% set x = 0 %}
+    <div class="carousel-inner" role="listbox">
+        {% for child in children %}
+            {% set activeCss = 'noActive' %}
+            {% if x < 1 %}
+                {% set activeCss = 'active' %}
+            {% endif %}
+            <div class="item {{ activeCss }}">
+                <img src="{{ child.carouselimg.thumb(width, height) }}" alt="{{ child.carouselimg.title|escape }}">
+
+                <div class="carousel-caption">
+                    <h3>{{ child.title }}</h3>
+                    <p>{{ child.html_description|raw }}</p>
+                </div>
+            </div>
+            {% set x = x + 1 %}
+        {% endfor %}
+    </div>
+
+    <a class="left carousel-control" href="#{{ carouselID }}" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#{{ carouselID }}" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+
+</div>
+{% endif %}
