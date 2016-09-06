@@ -18,7 +18,7 @@ class Compon extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Mavitm.Compon', 'main-menu-item');
+        BackendMenu::setContext('Mavitm.Compon', 'compon');
     }
 
     public function index()
