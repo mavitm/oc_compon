@@ -1,6 +1,6 @@
 # compon
 
-[![view the video](https://img.youtube.com/vi/LBP4rFNtM7Y/0.jpg)](https://www.youtube.com/watch?v=LBP4rFNtM7Y)
+[![view the video](https://img.youtube.com/vi/LBP4rFNtM7Y/0.jpg)](https://www.youtube.com/watch?v=LBP4rFNtM7Y) 
 https://www.youtube.com/watch?v=LBP4rFNtM7Y
 
 Bootstrap carousel, accordion and tab components.
