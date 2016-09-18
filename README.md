@@ -35,7 +35,11 @@ These lines go just above the closing __head__ tag.
 ```
 
 These lines go just above the closing __body__ tag. 
+ 
+  
+   
+    
+    
 
-
-** October web site 
+## October web site 
 [https://octobercms.com/plugin/mavitm-compon](https://octobercms.com/plugin/mavitm-compon)
