@@ -1,5 +1,7 @@
 <?php namespace Mavitm\Compon\Controllers;
 
+use Flash;
+use Redirect;
 use Backend\Classes\Controller;
 use BackendMenu;
 use Mavitm\compon\Models\Mtmdata;
@@ -7,6 +9,9 @@ use Backend;
 
 class Carousel extends Controller
 {
+
+    public $componPlugin    = 'carousel';
+
     public $implement = [
         'Backend\Behaviors\ListController',
         'Backend\Behaviors\FormController',
@@ -15,50 +20,25 @@ class Carousel extends Controller
 
     //public $listConfig = 'config_list.yaml';
     public $listConfig = [
-        'list' => 'config_list.yaml',
-        'subList' => 'config_sub_list.yaml'
+        'list'      => 'config_list.yaml',
+        'subList'   => 'config_sub_list.yaml'
     ];
-    public $formConfig = 'config_form.yaml';
-
-    public $reorderConfig = 'config_reorder.yaml';
+    public $formConfig          = 'config_form.yaml';
+    public $reorderConfig       = 'config_reorder.yaml';
 
     public $requiredPermissions = [
         'mavitm.compon.access_carousel'
     ];
 
+    use \Mavitm\Compon\Traits\ControllerTrait;
+
     public function __construct()
     {
 
         $this->vars['parentlist'] = true;
-
         parent::__construct();
 
         BackendMenu::setContext('Mavitm.Compon', 'compon', 'carousel_menu');
-    }
-
-
-    public function listExtendQuery($query)
-    {
-
-        if(in_array($this->action, ["sublist", "reorder"])){
-            $query->where([
-                'groups' => 'carousel',
-                'parent_id' => $this->params[0]
-            ])->orderBy("sort_order","asc");
-        }else{
-            $query->where([
-                'groups' => 'carousel',
-                'parent_id' => 0
-            ]);
-        }
-    }
-
-    public function reorderExtendQuery($query)
-    {
-        $query->where([
-            'groups' => 'carousel',
-            'parent_id' => $this->params[0]
-        ]);
     }
 
     public function formExtendFields($form)
@@ -101,8 +81,6 @@ class Carousel extends Controller
                 ],
             ]);
         }
-
-
     }
 
     public function create()
@@ -121,7 +99,6 @@ class Carousel extends Controller
 
     public function update()
     {
-
         if( !empty($this->params[1]) )
         {
             if(!empty($this->params[1])){
@@ -132,20 +109,4 @@ class Carousel extends Controller
 
         $this->asExtension('FormController')->update($this->params[0]);
     }
-
-    public function sublist()
-    {
-        if(empty($this->params[0])){
-            return redirect()->to(Backend::url('mavitm/compon/carousel'));
-        }
-
-        $parent = Mtmdata::where("id",$this->params[0])->first();
-        $this->pageTitle = $parent->title;
-        $this->vars['parentlist'] = false;
-        $this->vars['parent'] = $parent;
-        $this->asExtension('ListController')->index();
-    }
-
-
-
 }

@@ -1,5 +1,7 @@
 <?php namespace Mavitm\Compon\Controllers;
 
+use Flash;
+use Redirect;
 use Backend\Classes\Controller;
 use BackendMenu;
 use Mavitm\compon\Models\Mtmdata;
@@ -7,6 +9,8 @@ use Backend;
 
 class Tab extends Controller
 {
+    public $componPlugin    = 'tab';
+
     public $implement = [
         'Backend\Behaviors\ListController',
         'Backend\Behaviors\FormController',
@@ -26,6 +30,8 @@ class Tab extends Controller
         'mavitm.compon.access_tab'
     ];
 
+    use \Mavitm\Compon\Traits\ControllerTrait;
+
     public function __construct()
     {
 
@@ -34,31 +40,6 @@ class Tab extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Mavitm.Compon', 'compon', 'tab_menu');
-    }
-
-
-    public function listExtendQuery($query)
-    {
-
-        if(in_array($this->action, ["sublist", "reorder"])){
-            $query->where([
-                'groups' => 'tab',
-                'parent_id' => $this->params[0]
-            ])->orderBy("sort_order","asc");
-        }else{
-            $query->where([
-                'groups' => 'tab',
-                'parent_id' => 0
-            ]);
-        }
-    }
-
-    public function reorderExtendQuery($query)
-    {
-        $query->where([
-            'groups' => 'tab',
-            'parent_id' => $this->params[0]
-        ]);
     }
 
     public function formExtendFields($form)
@@ -124,20 +105,4 @@ class Tab extends Controller
 
         $this->asExtension('FormController')->update($this->params[0]);
     }
-
-    public function sublist()
-    {
-        if(empty($this->params[0])){
-            return redirect()->to(Backend::url('mavitm/compon/tab'));
-        }
-
-        $parent = Mtmdata::where("id",$this->params[0])->first();
-        $this->pageTitle = $parent->title;
-        $this->vars['parentlist'] = false;
-        $this->vars['parent'] = $parent;
-        $this->asExtension('ListController')->index();
-    }
-
-
-
 }

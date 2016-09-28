@@ -1,9 +1,14 @@
 <?php Block::put('breadcrumb') ?>
 <ul>
-    <li><a href="<?= Backend::url('mavitm/compon/compon/') ?>"><?= e(trans('mavitm.compon::lang.plugin.name')) ?></a></li>
-    <li><a href="<?= Backend::url('mavitm/compon/carousel') ?>"><?= e(trans('mavitm.compon::lang.carousel.tab')) ?></a></li>
-    <li><?= e($this->pageTitle) ?></li>
+    <li>
+        <a href="<?= Backend::url('mavitm/compon/compon/') ?>"><?= e(trans('mavitm.compon::lang.plugin.name')) ?></a>
+    </li>
+    <li>
+        <a href="<?= Backend::url('mavitm/compon/carousel') ?>"><?= e(trans('mavitm.compon::lang.carousel.tab')) ?></a>
+    </li>
+    <li>
+        <?= e($this->pageTitle) ?>
+    </li>
 </ul>
 <?php Block::endPut() ?>
-
 <?= $this->listRender("subList") ?>

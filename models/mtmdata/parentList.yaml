@@ -33,3 +33,7 @@ columns:
     sublistBtn:
         label: 'mavitm.compon::lang.compon.sublist'
         type: section
+    subAddBtn:
+        label: 'mavitm.compon::lang.compon.newItem'
+        type: section
+        invisible: false

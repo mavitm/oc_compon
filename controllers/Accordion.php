@@ -1,5 +1,7 @@
 <?php namespace Mavitm\Compon\Controllers;
 
+use Flash;
+use Redirect;
 use Backend\Classes\Controller;
 use BackendMenu;
 use Mavitm\compon\Models\Mtmdata;
@@ -7,6 +9,9 @@ use Backend;
 
 class Accordion extends Controller
 {
+
+    public $componPlugin    = 'accordion';
+
     public $implement = [
         'Backend\Behaviors\ListController',
         'Backend\Behaviors\FormController',
@@ -26,6 +31,8 @@ class Accordion extends Controller
         'mavitm.compon.access_accordion' 
     ];
 
+    use \Mavitm\Compon\Traits\ControllerTrait;
+
     public function __construct()
     {
 
@@ -37,29 +44,29 @@ class Accordion extends Controller
     }
 
 
-    public function listExtendQuery($query)
-    {
+//    public function listExtendQuery($query)
+//    {
+//
+//        if(in_array($this->action, ["sublist", "reorder"])){
+//            $query->where([
+//                'groups' => 'accordion',
+//                'parent_id' => $this->params[0]
+//            ])->orderBy("sort_order","asc");
+//        }else{
+//            $query->where([
+//                'groups' => 'accordion',
+//                'parent_id' => 0
+//            ]);
+//        }
+//    }
 
-        if(in_array($this->action, ["sublist", "reorder"])){
-            $query->where([
-                'groups' => 'accordion',
-                'parent_id' => $this->params[0]
-            ])->orderBy("sort_order","asc");
-        }else{
-            $query->where([
-                'groups' => 'accordion',
-                'parent_id' => 0
-            ]);
-        }
-    }
-
-    public function reorderExtendQuery($query)
-    {
-        $query->where([
-            'groups' => 'accordion',
-            'parent_id' => $this->params[0]
-        ]);
-    }
+//    public function reorderExtendQuery($query)
+//    {
+//        $query->where([
+//            'groups' => 'accordion',
+//            'parent_id' => $this->params[0]
+//        ]);
+//    }
 
     public function formExtendFields($form)
     {
@@ -144,19 +151,17 @@ class Accordion extends Controller
         $this->asExtension('FormController')->update($this->params[0]);
     }
 
-    public function sublist()
-    {
-        if(empty($this->params[0])){
-            return redirect()->to(Backend::url('mavitm/compon/accordion'));
-        }
-
-        $parent = Mtmdata::where("id",$this->params[0])->first();
-        $this->pageTitle = $parent->title;
-        $this->vars['parentlist'] = false;
-        $this->vars['parent'] = $parent;
-        $this->asExtension('ListController')->index();
-    }
-
-
+//    public function sublist()
+//    {
+//        if(empty($this->params[0])){
+//            return redirect()->to(Backend::url('mavitm/compon/accordion'));
+//        }
+//
+//        $parent = Mtmdata::where("id",$this->params[0])->first();
+//        $this->pageTitle = $parent->title;
+//        $this->vars['parentlist'] = false;
+//        $this->vars['parent'] = $parent;
+//        $this->asExtension('ListController')->index();
+//    }
 
 }

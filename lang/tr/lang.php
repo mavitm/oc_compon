@@ -12,9 +12,11 @@
         'updated_at' => 'Düzenlenme',
         'parent_id' => 'Üst ID',
         'sublist' => 'Alt değerler',
+        'newItem' => 'Yeni alt',
         'subCount' => 'Toplam',
         'edit' => 'Düzenle',
-        'group' => 'Gruplar'
+        'group' => 'Gruplar',
+        'delete' => 'Seçili olanlar silindi.'
     ],
     'accordion' => [
         'tab' => 'Accordion',

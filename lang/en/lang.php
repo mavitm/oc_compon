@@ -12,9 +12,11 @@
         'updated_at' => 'Change',
         'parent_id' => 'ParentID',
         'sublist' => 'Sub values',
+        'newItem' => 'New sub',
         'subCount' => 'Total',
         'edit' => 'Edit',
-        'group' => 'Groups'
+        'group' => 'Groups',
+        'delete' => 'Successfully deleted those items.'
     ],
     'accordion' => [
         'tab' => 'Accordion',

@@ -67,6 +67,14 @@ class Mtmdata extends Model
         </a>';
     }
 
+    public function getSubAddBtnAttribute()
+    {
+        //$project = $this->find($this->id);
+        return '<a href="'.Backend::url('mavitm/compon/'.$this->groups.'/create/subcreate/'.$this->id).'" class="btn btn-success btn-sm">
+        <i class="icon icon-plus"></i>
+        </a>';
+    }
+
     public function getSubCountAttribute()
     {
         return $this->where("parent_id", $this->id)->count();
