@@ -33,7 +33,7 @@ class Tab extends Controller
 
         parent::__construct();
 
-        BackendMenu::setContext('Mavitm.Compon', 'main-menu-item', 'tab_menu');
+        BackendMenu::setContext('Mavitm.Compon', 'compon', 'tab_menu');
     }
 
 
@@ -42,12 +42,12 @@ class Tab extends Controller
 
         if(in_array($this->action, ["sublist", "reorder"])){
             $query->where([
-                'group' => 'tab',
+                'groups' => 'tab',
                 'parent_id' => $this->params[0]
             ])->orderBy("sort_order","asc");
         }else{
             $query->where([
-                'group' => 'tab',
+                'groups' => 'tab',
                 'parent_id' => 0
             ]);
         }
@@ -56,7 +56,7 @@ class Tab extends Controller
     public function reorderExtendQuery($query)
     {
         $query->where([
-            'group' => 'tab',
+            'groups' => 'tab',
             'parent_id' => $this->params[0]
         ]);
     }
@@ -73,7 +73,7 @@ class Tab extends Controller
                         'label' => 'mavitm.compon::lang.compon.parent_id',
                         'default' => $this->params[1]
                     ],
-                    'group' => [
+                    'groups' => [
                         'label' => 'mavitm.compon::lang.compon.group',
                         'span' => 'right',
                         'type' => 'dropdown',
@@ -86,7 +86,7 @@ class Tab extends Controller
 
         if($this->action == "create"){
             $form->addFields([
-                'group' => [
+                'groups' => [
                     'label' => 'mavitm.compon::lang.compon.group',
                     'span' => 'right',
                     'type' => 'dropdown',

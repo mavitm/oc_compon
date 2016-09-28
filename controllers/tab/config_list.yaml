@@ -1,4 +1,4 @@
-title: Tab
+title: Tabhttps://maxcdn.bootstrapcdn.com/font-awe
 modelClass: Mavitm\Compon\Models\Mtmdata
 list: $/mavitm/compon/models/mtmdata/parentList.yaml
 recordUrl: 'mavitm/compon/tab/update/:id'
@@ -9,3 +9,11 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
+
+recordsPerPage: 50
+showCheckboxes: true
+showSetup: true
+
+defaultSort:
+    column: created_at
+    direction: desc

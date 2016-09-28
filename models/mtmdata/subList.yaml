@@ -8,7 +8,7 @@ columns:
         label: 'mavitm.compon::lang.compon.parent_id'
         type: number
         invisible: true
-    group:
+    groups:
         label: 'mavitm.compon::lang.compon.group'
         type: text
         invisible: true

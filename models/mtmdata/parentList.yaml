@@ -4,7 +4,7 @@ columns:
         type: number
         invisible: true
         sortable: true
-    group:
+    groups:
         label: 'mavitm.compon::lang.compon.group'
         type: text
         searchable: false

@@ -6,6 +6,6 @@ create:
     redirect: 'mavitm/compon/accordion/update/:id/:parent_id'
     redirectClose: mavitm/compon/accordion/sublist/:paren_id
 update:
-    redirect: mavitm/compon/accordion
-    redirectClose: mavitm/compon/accordion
+    redirect: mavitm/compon/accordion/sublist/:paren_id
+    redirectClose: mavitm/compon/accordion/sublist/:paren_id
 preview: {  }

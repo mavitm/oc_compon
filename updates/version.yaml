@@ -1,4 +1,7 @@
-1.0.0: Plugin Init
+1.0.0: 'Plugin Init'
 1.0.1:
-  - Tables created
-  - create_mavitm_compon_mtmdata.php
+    - 'Tables created'
+    - create_mavitm_compon_mtmdata.php
+1.0.2:
+    - 'Updated table mavitm_compon_mtmdata'
+    - builder_table_update_mavitm_compon_mtmdata.php

@@ -1,0 +1,20 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    status:
+        label: Groups
+        type: group
+        conditions: groups in (:filtered)
+        modelClass: Mavitm\Compon\Models\Mtmdata
+        options:
+            scopePluginGroups
+
+    parent:
+        label: Parent
+        type: switch
+        conditions:
+             - parent_id = 0
+             - parent_id <> 0

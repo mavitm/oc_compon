@@ -5,7 +5,7 @@
     ],
     'compon' => [
         'insert_id' => 'ID',
-        'group' => 'Grup',
+        'groups' => 'Grup',
         'title' => 'Title',
         'description' => 'Description',
         'added' => 'Added',
@@ -14,7 +14,7 @@
         'sublist' => 'Sub values',
         'subCount' => 'Total',
         'edit' => 'Edit',
-        'groups' => 'Acordion groups'
+        'group' => 'Groups'
     ],
     'accordion' => [
         'tab' => 'Accordion',

@@ -35,6 +35,11 @@ class Mtmdata extends Model
         "carousel" => "Carousel"
     ];
 
+    public function scopePluginGroups()
+    {
+        return self::$groupOrtions;
+    }
+
     public function beforeSave()
     {
         if(!is_numeric($this->parent_id) || empty($this->parent_id)){
@@ -42,22 +47,22 @@ class Mtmdata extends Model
         }
 
         if($this->parent_id > 0){
-            $parent = $this->select("id","title","group")->where(["id"=>$this->parent_id])->first();
+            $parent = $this->select("id","title","groups")->where(["id"=>$this->parent_id])->first();
 
             //$sub = $this->where("parent_id",$this->parent_id)->orderBy("sort_order","desc")->first();
 
-            $this->group = $parent->group;
+            $this->groups = $parent->group;
         }
 
-        if(!array_key_exists($this->group, self::$groupOrtions)){
-            $this->group = "carousel";
+        if(!array_key_exists($this->groups, self::$groupOrtions)){
+            $this->groups = "carousel";
         }
     }
 
     public function getSublistBtnAttribute()
     {
         //$project = $this->find($this->id);
-        return '<a href="'.Backend::url('mavitm/compon/'.$this->group.'/sublist/'.$this->id).'" class="btn btn-primary btn-sm">
+        return '<a href="'.Backend::url('mavitm/compon/'.$this->groups.'/sublist/'.$this->id).'" class="btn btn-primary btn-sm">
         <i class="icon icon-indent"></i> Sub list
         </a>';
     }
@@ -69,7 +74,7 @@ class Mtmdata extends Model
 
     public function getGroupStrAttribute()
     {
-        return self::$groupOrtions[$this->group];
+        return self::$groupOrtions[$this->groups];
     }
 
     public function getParentColorAttribute()
@@ -88,10 +93,10 @@ class Mtmdata extends Model
 
     public function getParentIdOptions(){
         $return = [0 => "Parent null"];
-        $query = $this->select("id","title","group")->where(["parent_id"=>0]);
+        $query = $this->select("id","title","groups")->where(["parent_id"=>0]);
 
-        if(!empty($this->group)){
-            $query->where("group",$this->group);
+        if(!empty($this->groups)){
+            $query->where("groups",$this->groups);
         }
 
         $result = $query->get();
@@ -99,7 +104,7 @@ class Mtmdata extends Model
         if(!empty($result)){
             $return = array();
             foreach($result as $e){
-                $return[$e->id] = $e->id.' - '.$e->title." (".$e->group.")";
+                $return[$e->id] = $e->id.' - '.$e->title." (".self::$groupOrtions[$e->groups].")";
             }
         }
         return $return;
@@ -108,12 +113,12 @@ class Mtmdata extends Model
     public function parentIDReturnArray($controller)
     {
         $return = [0 => "Parent null"];
-        $result = $this->select("id","title","group")->where([ 'group' => $controller, 'parent_id' => 0 ])->get();
+        $result = $this->select("id","title","groups")->where([ 'groups' => $controller, 'parent_id' => 0 ])->get();
 
         if(!empty($result)){
             $return = array();
             foreach($result as $e){
-                $return[$e->id] = $e->id.' - '.$e->title." (".$e->group.")";
+                $return[$e->id] = $e->id.' - '.$e->title." (".self::$groupOrtions[$e->groups].")";
             }
         }
         return $return;
@@ -131,7 +136,7 @@ class Mtmdata extends Model
         return $this->parentIDReturnArray('carousel');
     }
 
-    public function getGroupOptions(){
+    public function getGroupsOptions(){
         return self::$groupOrtions;
     }
 }

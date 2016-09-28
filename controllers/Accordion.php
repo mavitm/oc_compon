@@ -33,7 +33,7 @@ class Accordion extends Controller
 
         parent::__construct();
 
-        BackendMenu::setContext('Mavitm.Compon', 'main-menu-item', 'accordion_menu');
+        BackendMenu::setContext('Mavitm.Compon', 'compon', 'accordion_menu');
     }
 
 
@@ -42,12 +42,12 @@ class Accordion extends Controller
 
         if(in_array($this->action, ["sublist", "reorder"])){
             $query->where([
-                'group' => 'accordion',
+                'groups' => 'accordion',
                 'parent_id' => $this->params[0]
             ])->orderBy("sort_order","asc");
         }else{
             $query->where([
-                'group' => 'accordion',
+                'groups' => 'accordion',
                 'parent_id' => 0
             ]);
         }
@@ -56,7 +56,7 @@ class Accordion extends Controller
     public function reorderExtendQuery($query)
     {
         $query->where([
-            'group' => 'accordion',
+            'groups' => 'accordion',
             'parent_id' => $this->params[0]
         ]);
     }
@@ -73,7 +73,7 @@ class Accordion extends Controller
                         'label' => 'mavitm.compon::lang.compon.parent_id',
                         'default' => $this->params[1]
                     ],
-                    'group' => [
+                    'groups' => [
                         'label' => 'mavitm.compon::lang.compon.group',
                         'span' => 'right',
                         'type' => 'dropdown',
@@ -85,7 +85,7 @@ class Accordion extends Controller
 
         if($this->action == "create"){
             $form->addFields([
-                'group' => [
+                'groups' => [
                     'label' => 'mavitm.compon::lang.compon.group',
                     'span' => 'right',
                     'type' => 'dropdown',
@@ -108,7 +108,7 @@ class Accordion extends Controller
 //
 //        $this->pageTitle = 'Accordion grupları';
 //        $this->bodyClass = 'slim-container side-panel-not-fixed';
-//        $parentData = Mtmdata::where(['group' => 'accordion','parent_id' => 0])->orderBy("title","acs")->get();
+//        $parentData = Mtmdata::where(['groups' => 'accordion','parent_id' => 0])->orderBy("title","acs")->get();
 //        $this->vars['parents'] = $parentData;
 //        $this->vars['toolbar'] = $this->makePartial('list_toolbar');
 

@@ -38,7 +38,7 @@ class Tab extends ComponentBase
     public function getIdOptions()
     {
         $return = [0 => "Parent null"];
-        $result = Mtmdata::select("id","title","group")->where([ 'group' => 'tab', 'parent_id' => 0 ])->get();
+        $result = Mtmdata::select("id","title","groups")->where([ 'groups' => 'tab', 'parent_id' => 0 ])->get();
         if(!empty($result)){
             $return = array();
             foreach($result as $e){
@@ -57,7 +57,7 @@ class Tab extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'group' => 'tab', 'parent_id' => $this->currentParentId ])->get();
+        return Mtmdata::where([ 'groups' => 'tab', 'parent_id' => $this->currentParentId ])->get();
     }
 
 }

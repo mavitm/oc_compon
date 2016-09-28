@@ -12,7 +12,7 @@ columns:
         label: 'mavitm.compon::lang.carousel.image'
         type: section
         sortable: false
-    group:
+    groups:
         label: 'mavitm.compon::lang.compon.group'
         type: text
         invisible: true

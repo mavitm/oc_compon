@@ -54,7 +54,7 @@ class Carousel extends ComponentBase
     public function getIdOptions()
     {
         $return = [0 => "Parent null"];
-        $result = Mtmdata::select("id","title","group")->where([ 'group' => 'carousel', 'parent_id' => 0 ])->get();
+        $result = Mtmdata::select("id","title","groups")->where([ 'groups' => 'carousel', 'parent_id' => 0 ])->get();
         if(!empty($result)){
             $return = array();
             foreach($result as $e){
@@ -86,7 +86,7 @@ class Carousel extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'group' => 'carousel', 'parent_id' => $this->currentParentId ])->get();
+        return Mtmdata::where([ 'groups' => 'carousel', 'parent_id' => $this->currentParentId ])->get();
     }
 
 }

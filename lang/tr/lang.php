@@ -5,7 +5,7 @@
     ],
     'compon' => [
         'insert_id' => 'ID',
-        'group' => 'Grup',
+        'groups' => 'Grup',
         'title' => 'Başlık',
         'description' => 'Açıklama',
         'added' => 'Eklenme',
@@ -14,7 +14,7 @@
         'sublist' => 'Alt değerler',
         'subCount' => 'Toplam',
         'edit' => 'Düzenle',
-        'groups' => 'Akordiyon grupları'
+        'group' => 'Gruplar'
     ],
     'accordion' => [
         'tab' => 'Accordion',

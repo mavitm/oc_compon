@@ -10,7 +10,7 @@ columns:
         invisible: true
         sortable: false
     groupStr:
-        label: 'mavitm.compon::lang.compon.group'
+        label: 'mavitm.compon::lang.compon.groups'
         type: text
         searchable: false
         invisible: true

@@ -4,7 +4,7 @@ fields:
         span: auto
         required: 1
         type: text
-    group:
+    groups:
         label: 'mavitm.compon::lang.compon.group'
         span: auto
         required: 1
