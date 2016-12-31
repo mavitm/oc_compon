@@ -5,3 +5,6 @@
 1.0.2:
     - 'Updated table mavitm_compon_mtmdata'
     - builder_table_update_mavitm_compon_mtmdata.php
+1.1.0:
+    - 'Grid list add'
+    - 'section type remove'
