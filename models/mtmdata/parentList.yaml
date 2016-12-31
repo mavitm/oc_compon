@@ -29,11 +29,12 @@ columns:
         sortable: true
     subCount:
         label: 'mavitm.compon::lang.compon.subCount'
-        type: section
     sublistBtn:
         label: 'mavitm.compon::lang.compon.sublist'
-        type: section
+        type: partial
+        path: ~/plugins/mavitm/compon/models/mtmdata/_sublistbtn.htm
     subAddBtn:
         label: 'mavitm.compon::lang.compon.newItem'
-        type: section
+        type: partial
+        path: ~/plugins/mavitm/compon/models/mtmdata/_subaddbtn.htm
         invisible: false

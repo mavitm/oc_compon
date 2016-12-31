@@ -6,7 +6,8 @@ columns:
         sortable: true
     parentColor:
         label: 'mavitm.compon::lang.compon.parent_id'
-        type: section
+        type: partial
+        path: ~/plugins/mavitm/compon/models/mtmdata/_parentColor.htm
         invisible: true
         sortable: false
     groupStr:

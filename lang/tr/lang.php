@@ -53,4 +53,19 @@
         'reorder' => 'Yeniden sırala',
         'edit' => 'Alt bilgisi düzenle',
     ],
+    'grid' => [
+        'tab'           => 'Grid',
+        'description'   => 'Grid ekle',
+        'parent_title'  => 'Grid groupları',
+        'access_post'   => 'Compon gridleri yönetebilir',
+        'newGroup'      => 'grup oluştur',
+        'newItem'       => 'Alt içerik ekle',
+        'reorder'       => 'Yeniden sırala',
+        'edit'          => 'Alt bilgisi düzenle',
+        'dimensions'    => 'Boyutlar',
+        'xsSize'        => 'xs col',
+        'smSize'        => 'sm col',
+        'mdSize'        => 'md col',
+        'lgSize'        => 'lg col'
+    ],
 ];

@@ -1,0 +1,9 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('mavitm/compon/compon/') ?>"><?= e(trans('mavitm.compon::lang.plugin.name')) ?></a></li>
+        <li><a href="<?= Backend::url('mavitm/compon/grid') ?>"><?= e(trans('mavitm.compon::lang.grid.tab')) ?></a></li>
+        <li><?= e(trans('mavitm.compon::lang.grid.reorder')) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?= $this->reorderRender() ?>

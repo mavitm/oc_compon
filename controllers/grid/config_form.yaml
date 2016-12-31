@@ -1,0 +1,11 @@
+name: Grid
+modelClass: Mavitm\Compon\Models\Mtmdata
+form: $/mavitm/compon/models/mtmdata/parentForm.yaml
+defaultRedirect: mavitm/compon/grid
+create:
+    redirect: 'mavitm/compon/grid/update/:id'
+    redirectClose: mavitm/compon/grid
+update:
+    redirect: mavitm/compon/grid
+    redirectClose: mavitm/compon/grid
+preview: {  }

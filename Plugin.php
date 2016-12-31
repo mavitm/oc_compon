@@ -22,7 +22,8 @@ class Plugin extends PluginBase
         return [
             'Mavitm\Compon\Components\Accordion'    => 'componAccordion',
             'Mavitm\Compon\Components\Tab'          => 'componTab',
-            'Mavitm\Compon\Components\Carousel'     => 'componCarousel'
+            'Mavitm\Compon\Components\Carousel'     => 'componCarousel',
+            'Mavitm\Compon\Components\Grid'         => 'componGrid'
         ];
     }
 
@@ -40,6 +41,10 @@ class Plugin extends PluginBase
             'mavitm.compon.access_tab' => [
                 'tab'   => 'mavitm.compon::lang.tab.tab',
                 'label' => 'mavitm.compon::lang.tab.access_post'
+            ],
+            'mavitm.compon.access_grid' => [
+                'tab'   => 'mavitm.compon::lang.grid.tab',
+                'label' => 'mavitm.compon::lang.grid.access_post'
             ]
         ];
     }
@@ -72,6 +77,12 @@ class Plugin extends PluginBase
                         'url'           => Backend::url('mavitm/compon/tab'),
                         'icon'          => 'icon-folder',
                         'permissions'   => ['mavitm.compon.access_tab']
+                    ],
+                    'grid_menu' => [
+                        'label'         => 'mavitm.compon::lang.grid.tab',
+                        'url'           => Backend::url('mavitm/compon/grid'),
+                        'icon'          => 'icon-columns',
+                        'permissions'   => ['mavitm.compon.access_grid']
                     ]
                 ]
             ]

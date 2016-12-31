@@ -1,21 +1,19 @@
-title: Compon0
+title: Grid
 modelClass: Mavitm\Compon\Models\Mtmdata
-list: $/mavitm/compon/models/mtmdata/homeList.yaml
-recordUrl: 'mavitm/compon/accordion/update/:id'
+list: $/mavitm/compon/models/mtmdata/subList.yaml
+recordUrl: 'mavitm/compon/grid/update/:id/:parent_id'
 noRecordsMessage: 'backend::lang.list.no_records'
-
+showSetup: true
+showCheckboxes: true
 toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-
 
 recordsPerPage: 50
 showCheckboxes: true
 showSetup: true
 
 defaultSort:
-    column: created_at
-    direction: desc
-
-filter: config_filter.yaml
+    column: sort_order
+    direction: asc

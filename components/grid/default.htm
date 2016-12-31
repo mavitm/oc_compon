@@ -1,0 +1,40 @@
+{% if __SELF__.componChildren %}
+
+    {% set children = __SELF__.componChildren %}
+    {% set xsB = 0 %}
+    {% set smB = 0 %}
+    {% set mdB = 0 %}
+    {% set lgB = 0 %}
+
+    <div class="row">
+
+    {% for child in children %}
+
+        <div class="col-xs-{{ __SELF__.xs }} col-sm-{{ __SELF__.sm }} col-md-{{ __SELF__.md }} col-lg-{{ __SELF__.lg }}">
+            {{ child.html_description|raw }}
+        </div>
+
+        {% set xsB = xsB + 1 %}
+        {% set smB = smB + 1 %}
+        {% set mdB = mdB + 1 %}
+        {% set lgB = lgB + 1 %}
+
+        {% if xsB % (12 / __SELF__.xs) == 0 %}
+            <div class="clearfix visible-xs"></div>
+        {% endif %}
+
+        {% if smB % (12 / __SELF__.sm) == 0 %}
+            <div class="clearfix visible-sm"></div>
+        {% endif %}
+
+        {% if mdB % (12 / __SELF__.md) == 0 %}
+            <div class="clearfix visible-md"></div>
+        {% endif %}
+
+        {% if lgB % (12 / __SELF__.lg) == 0 %}
+            <div class="clearfix visible-lg"></div>
+        {% endif %}
+
+    {% endfor %}
+    </div>
+{% endif %}

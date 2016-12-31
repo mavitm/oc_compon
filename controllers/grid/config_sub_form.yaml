@@ -1,0 +1,11 @@
+name: Grid
+modelClass: Mavitm\Compon\Models\Mtmdata
+form: $/mavitm/compon/models/mtmdata/gridSubForm.yaml
+defaultRedirect: mavitm/compon/grid/sublist/:parent_id
+create:
+    redirect: 'mavitm/compon/grid/update/:id/:parent_id'
+    redirectClose: mavitm/compon/grid/sublist/:paren_id
+update:
+    redirect: mavitm/compon/grid/sublist/:paren_id
+    redirectClose: mavitm/compon/grid/sublist/:paren_id
+preview: {  }

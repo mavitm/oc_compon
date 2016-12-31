@@ -30,13 +30,15 @@ class Mtmdata extends Model
     ];
 
     public static $groupOrtions = [
-        "tab" => "Tab",
+        "tab"       => "Tab",
         "accordion" => "Accordion",
-        "carousel" => "Carousel"
+        "carousel"  => "Carousel",
+        "grid"      => "Grid"
     ];
 
     public function scopePluginGroups()
     {
+        //return collect(self::$groupOrtions);
         return self::$groupOrtions;
     }
 
@@ -51,11 +53,11 @@ class Mtmdata extends Model
 
             //$sub = $this->where("parent_id",$this->parent_id)->orderBy("sort_order","desc")->first();
 
-            $this->groups = $parent->group;
+            $this->groups = $parent->groups;
         }
 
         if(!array_key_exists($this->groups, self::$groupOrtions)){
-            $this->groups = "carousel";
+            //$this->groups = "carousel";
         }
     }
 
@@ -71,13 +73,13 @@ class Mtmdata extends Model
     {
         //$project = $this->find($this->id);
         return '<a href="'.Backend::url('mavitm/compon/'.$this->groups.'/create/subcreate/'.$this->id).'" class="btn btn-success btn-sm">
-        <i class="icon icon-plus"></i>
+        <i class="icon icon-plus"></i> New sub item
         </a>';
     }
 
     public function getSubCountAttribute()
     {
-        return $this->where("parent_id", $this->id)->count();
+        return intval($this->where("parent_id", $this->id)->count());
     }
 
     public function getGroupStrAttribute()
