@@ -1,0 +1,24 @@
+{% if __SELF__.childs %}
+    {% set kybele = __SELF__.kybele %}
+        {% set menuDisplay = 1 %}
+        {% if kybele.user_visible != 'all' %}
+            {% if kybele.user_visible == 'registered' and user.cont < 1 %}
+                {% set menuDisplay = 0 %}
+            {% elseif kybele.user_visible == 'guests' and user %}
+                {% set menuDisplay = 0 %}
+            {% endif %}
+        {% endif %}
+        {% if menuDisplay %}
+            {% if kybele.parent_tag_enable == 1 %}
+                <{{ kybele.parent_tag }} class="{{ kybele.class_attr }}" id="{{ kybele.id_attr }}">
+            {% endif %}
+                {% partial __SELF__ ~ "::items"
+                    menuChilds = __SELF__.childs
+                    kybele = kybele
+                    activeSlug = __SELF__.activeSlug
+                %}
+            {% if kybele.parent_tag_enable == 1 %}
+                </{{ kybele.parent_tag }}>
+            {% endif %}
+        {% endif %}
+{% endif %}

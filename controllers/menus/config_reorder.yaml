@@ -1,0 +1,5 @@
+title: Menu
+modelClass: Mavitm\Compon\Models\Menu
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

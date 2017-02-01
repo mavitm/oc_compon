@@ -4,19 +4,12 @@ columns:
         type: number
         invisible: true
         sortable: true
-    parent_id:
-        label: 'mavitm.compon::lang.compon.parent_id'
-        type: number
-        invisible: true
-    carouselimages:
-        label: 'mavitm.compon::lang.carousel.image'
-        type: partial
-        path: ~/plugins/mavitm/compon/models/mtmdata/_carouselimages.htm
-        sortable: false
     groups:
         label: 'mavitm.compon::lang.compon.group'
         type: text
+        searchable: false
         invisible: true
+        sortable: false
     title:
         label: 'mavitm.compon::lang.compon.title'
         type: text
@@ -25,11 +18,23 @@ columns:
     created_at:
         label: 'mavitm.compon::lang.compon.added'
         type: datetime
-        searchable: false
+        searchable: true
+        invisible: true
         sortable: true
     updated_at:
         label: 'mavitm.compon::lang.compon.updated_at'
         type: datetime
-        searchable: false
+        searchable: true
         invisible: true
         sortable: true
+    subCount:
+        label: 'mavitm.compon::lang.compon.subCount'
+    sublistBtn:
+        label: 'mavitm.compon::lang.compon.sublist'
+        type: partial
+        path: ~/plugins/mavitm/compon/models/mtmdata/_sublistbtn.htm
+    subAddBtn:
+        label: 'mavitm.compon::lang.compon.newItem'
+        type: partial
+        path: ~/plugins/mavitm/compon/models/mtmdata/_subaddbtn.htm
+        invisible: false

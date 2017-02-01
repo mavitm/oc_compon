@@ -52,6 +52,7 @@
         'newItem' => 'Alt içerik ekle',
         'reorder' => 'Yeniden sırala',
         'edit' => 'Alt bilgisi düzenle',
+        'captionDisplay'=> 'Başlık ve açıklamayı göster'
     ],
     'grid' => [
         'tab'           => 'Grid',
@@ -68,4 +69,33 @@
         'mdSize'        => 'md col',
         'lgSize'        => 'lg col'
     ],
+    'menu' => [
+        'tab'           => 'Menu',
+        'description'   => 'Menü ekle',
+        'parent_title'  => 'Menü grupları',
+        'access_post'   => 'Menüleri yönetebilir',
+        'newGroup'      => 'Yeni grup oluştur',
+        'newItem'       => 'Link ekle',
+        'reorder'       => 'Sırala',
+        'edit'          => 'Link düzenle',
+        'detail_page'   => 'Sayfa',
+        'external_url'  => 'Dış bağlantı Url',
+        'id_attr'       => 'id özellik adı',
+        'class_attr'    => 'css class özellik adları',
+        'link_target'   => 'Pancere hedefi',
+        'target_self'   => 'Aynı geçerli pencere (_self)',
+        'target_blank'  => 'Yeni pencere (_blank)',
+        'target_top'    => 'Üst Pencere (_top)',
+        'target_parent' => 'Dış pencere (_parent)',
+        'link_visible'  => 'Kimler görür',
+        'visible_all'   => 'Tüm kullanıcılar',
+        'visible_registered'    => 'Kayıtlı kullanıcılar',
+        'visible_guests'        => 'Ziyaretçiler',
+        'properties'    => 'Özellikleri',
+        'slug'          => 'Slug',
+        'child_ul_class_attr'   => 'Alt menülerde ul/ol tagları için css class isimleri',
+        'parent_tag'        => 'Menü hangi element ile oluşturulsun.',
+        'parent_tag_enable' => 'External ul/ol tag is added',
+        'slug_description'  => 'Menu active item value'
+    ]
 ];

@@ -23,7 +23,8 @@ class Plugin extends PluginBase
             'Mavitm\Compon\Components\Accordion'    => 'componAccordion',
             'Mavitm\Compon\Components\Tab'          => 'componTab',
             'Mavitm\Compon\Components\Carousel'     => 'componCarousel',
-            'Mavitm\Compon\Components\Grid'         => 'componGrid'
+            'Mavitm\Compon\Components\Grid'         => 'componGrid',
+            'Mavitm\Compon\Components\Menu'         => 'componMenu'
         ];
     }
 
@@ -45,6 +46,10 @@ class Plugin extends PluginBase
             'mavitm.compon.access_grid' => [
                 'tab'   => 'mavitm.compon::lang.grid.tab',
                 'label' => 'mavitm.compon::lang.grid.access_post'
+            ],
+            'mavitm.compon.access_menu' => [
+                'tab'   => 'mavitm.compon::lang.menu.tab',
+                'label' => 'mavitm.compon::lang.menu.access_post'
             ]
         ];
     }
@@ -54,7 +59,7 @@ class Plugin extends PluginBase
         return [
             'compon' => [
                 'label'         => 'mavitm.compon::lang.plugin.name',
-                'url'           => Backend::url('mavitm/compon/compon'),
+                'url'           =>  Backend::url('mavitm/compon/compon'),
                 'icon'          => 'icon-list-alt',
                 'permissions'   => ['mavitm.compon.*'],
                 'order'         => 50,
@@ -83,12 +88,27 @@ class Plugin extends PluginBase
                         'url'           => Backend::url('mavitm/compon/grid'),
                         'icon'          => 'icon-columns',
                         'permissions'   => ['mavitm.compon.access_grid']
+                    ],
+                    'menu_menu' => [
+                        'label'         => 'mavitm.compon::lang.menu.tab',
+                        'url'           => Backend::url('mavitm/compon/menus'),
+                        'icon'          => 'icon-bars',
+                        'permissions'   => ['mavitm.compon.access_menu']
                     ]
                 ]
             ]
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'Mavitm\Compon\Formwidgets\Jsonable' => [
+                'label' => 'jsonable',
+                'code'  => 'jsonable'
+            ]
+        ];
+    }
 
     public function registerSettings()
     {

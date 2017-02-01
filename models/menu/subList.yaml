@@ -4,15 +4,10 @@ columns:
         type: number
         invisible: true
         sortable: true
-    parent_id:
+    parent_type:
         label: 'mavitm.compon::lang.compon.parent_id'
-        type: number
+        type: text
         invisible: true
-    carouselimages:
-        label: 'mavitm.compon::lang.carousel.image'
-        type: partial
-        path: ~/plugins/mavitm/compon/models/mtmdata/_carouselimages.htm
-        sortable: false
     groups:
         label: 'mavitm.compon::lang.compon.group'
         type: text

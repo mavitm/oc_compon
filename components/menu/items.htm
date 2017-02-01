@@ -1,0 +1,19 @@
+{% for item in menuChilds %}
+{% set liOpt = item.strdata %}
+{% set liID = 'compon' ~ '_' ~ item.id %}
+{% if item.id_attr %}
+{% set liID = liOpt.id_attr %}
+{% endif %}
+<li class="{% if item.slug == activeSlug %}active {% endif %}{{ liOpt.class_attr }}" id="{{ liID }}">
+        <a href="{{ item.link_href}}"{% if liOpt.link_target != '_self' %} target="{{ liOpt.link_target }}" {% endif %}>{{ item.title }}</a>
+        {% if item.children.count %}
+            <{{ kybele.parent_tag }} class="{{ liOpt.child_ul_class_attr }}">
+                {% partial __SELF__ ~ "::items"
+                    menuChilds=item.children
+                    kybele = kybele
+                    activeSlug = activeSlug
+                %}
+            </{{ kybele.parent_tag }}>
+        {% endif %}
+</li>
+{% endfor %}

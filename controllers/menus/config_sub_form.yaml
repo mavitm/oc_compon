@@ -1,0 +1,10 @@
+name: Menu
+modelClass: Mavitm\Compon\Models\Menu
+form: $/mavitm/compon/models/menu/subForm.yaml
+defaultRedirect: mavitm/compon/menus/sublist/:id
+create:
+    redirect: 'mavitm/compon/menus/update/:id/:parent_id'
+    redirectClose: mavitm/compon/menus/sublist/:id
+update:
+    redirect: mavitm/compon/menus
+    redirectClose: mavitm/compon/menus

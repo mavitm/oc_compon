@@ -1,0 +1,94 @@
+fields:
+    title:
+        label: 'mavitm.compon::lang.compon.title'
+        span: auto
+        required: 1
+        type: text
+    parent_type:
+        label: 'mavitm.compon::lang.menu.slug'
+        span: auto
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    parent_id:
+        label: 'mavitm.compon::lang.compon.parent_id'
+        span: auto
+        required: 1
+        type: dropdown
+    strdata:
+        type: jsonable
+        form:
+            fields:
+                parent_id:
+                    label: 'mavitm.compon::lang.compon.parent_id'
+                    span: auto
+                    required: 1
+                    type: dropdown
+                local_page:
+                    tab: mavitm.compon::lang.menu.pages
+                    label: mavitm.compon::lang.menu.detail_page
+                    type: dropdown
+                    default: 404
+                    span: auto
+                external_url:
+                    label: 'mavitm.compon::lang.menu.external_url'
+                    span: auto
+                    type: text
+                id_attr:
+                    label: 'mavitm.compon::lang.menu.id_attr'
+                    span: auto
+                    type: text
+                class_attr:
+                    label: 'mavitm.compon::lang.menu.class_attr'
+                    span: auto
+                    type: text
+                child_ul_class_attr:
+                    label: 'mavitm.compon::lang.menu.child_ul_class_attr'
+                    span: auto
+                    type: text
+                link_target:
+                    label: 'mavitm.compon::lang.menu.link_target'
+                    span: auto
+                    type: dropdown
+                    options:
+                        _self: 'mavitm.compon::lang.menu.target_self'
+                        _balank: 'mavitm.compon::lang.menu.target_blank'
+                        _top: 'mavitm.compon::lang.menu.target_top'
+                        _parent: 'mavitm.compon::lang.menu.target_parent'
+
+    strdata[option]:
+            type: jsonable
+            form:
+                fields:
+                    id_attr:
+                        label: 'mavitm.compon::lang.menu.id_attr'
+                        span: auto
+                        type: text
+                    class_attr:
+                        label: 'mavitm.compon::lang.menu.class_attr'
+                        span: auto
+                        type: text
+                    parent_tag:
+                        label: 'mavitm.compon::lang.menu.parent_tag'
+                        span: auto
+                        type: dropdown
+                        options:
+                            ul: 'ul tag'
+                            ol: 'ol tag'
+                    parent_tag_enable:
+                        label: 'mavitm.compon::lang.menu.parent_tag_enable'
+                        span: auto
+                        type: dropdown
+                        options:
+                            1: 'Yes use external tag'
+                            0: 'Using no external tag'
+                    user_visible:
+                          label: 'mavitm.compon::lang.menu.link_visible'
+                          span: auto
+                          type: dropdown
+                          options:
+                              all: 'mavitm.compon::lang.menu.visible_all'
+                              registered: 'mavitm.compon::lang.menu.visible_registered'
+                              guests: 'mavitm.compon::lang.menu.visible_guests'

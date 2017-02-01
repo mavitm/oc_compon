@@ -8,3 +8,7 @@
 1.1.0:
     - 'Grid list add'
     - 'section type remove'
+1.2.0:
+    - 'Menu manager add'
+    - 'new add parent_type field'
+    - add_parent_type_field_to_table.php

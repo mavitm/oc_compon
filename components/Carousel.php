@@ -31,7 +31,7 @@ class Carousel extends ComponentBase
         return [
             'id' => [
                 'title'       => 'mavitm.compon::lang.carousel.tab',
-                'description' => 'mavitm.compon::lang.carousel.groups',
+                'description' => 'mavitm.compon::lang.carousel.parent_title',
                 'type'        => 'dropdown'
             ],
             'imgWidth' => [
@@ -47,7 +47,13 @@ class Carousel extends ComponentBase
                 'type'        => 'text',
                 'required'    => 1,
                 'default'     => 640
-            ]
+            ],
+            'captionDisplay' => [
+                'title'       => 'mavitm.compon::lang.carousel.captionDisplay',
+                'description' => '',
+                'type'        => 'checkbox',
+                'default'     => 0
+            ],
         ];
     }
 

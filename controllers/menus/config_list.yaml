@@ -1,7 +1,7 @@
-title: Tab
-modelClass: Mavitm\Compon\Models\Mtmdata
-list: $/mavitm/compon/models/mtmdata/parentList.yaml
-recordUrl: 'mavitm/compon/tab/update/:id'
+title: Menu
+modelClass: Mavitm\Compon\Models\Menu
+list: $/mavitm/compon/models/menu/parentList.yaml
+recordUrl: 'mavitm/compon/menus/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true

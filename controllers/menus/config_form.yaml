@@ -1,0 +1,11 @@
+name: Menu
+modelClass: Mavitm\Compon\Models\Menu
+form: $/mavitm/compon/models/menu/parentForm.yaml
+defaultRedirect: mavitm/compon/menus
+create:
+    redirect: 'mavitm/compon/menus/update/:id'
+    redirectClose: mavitm/compon/menus
+update:
+    redirect: mavitm/compon/menus
+    redirectClose: mavitm/compon/menus
+preview: {  }

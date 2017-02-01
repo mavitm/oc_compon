@@ -1,7 +1,11 @@
 <?php namespace Mavitm\Compon\Controllers;
 
-use Backend\Classes\Controller;
+use Flash;
+use Backend;
+use Redirect;
 use BackendMenu;
+use Backend\Classes\Controller;
+use Mavitm\Compon\Models\Mtmdata;
 
 class Compon extends Controller
 {
@@ -32,4 +36,10 @@ class Compon extends Controller
     {
         //$query->where(['parent_id' => 0]);
     }
+
+    public function getlink(){
+        $item = Mtmdata::find($this->params[0]);
+        return redirect()->to(Backend::url('mavitm/compon/'.$item->url_group.'/update/'.$item->id));
+    }
+
 }

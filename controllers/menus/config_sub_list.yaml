@@ -1,10 +1,11 @@
-title: Tab
-modelClass: Mavitm\Compon\Models\Mtmdata
-list: $/mavitm/compon/models/mtmdata/parentList.yaml
-recordUrl: 'mavitm/compon/tab/update/:id'
+title: Menu
+modelClass: Mavitm\Compon\Models\Menu
+list: $/mavitm/compon/models/menu/subList.yaml
+recordUrl: 'mavitm/compon/menus/update/:id/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
-showSetup: true
+
 showCheckboxes: true
+showTree: true
 toolbar:
     buttons: list_toolbar
     search:
@@ -15,5 +16,5 @@ showCheckboxes: true
 showSetup: true
 
 defaultSort:
-    column: created_at
-    direction: desc
+    column: sort_order
+    direction: asc

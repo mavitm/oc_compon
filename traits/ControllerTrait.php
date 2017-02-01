@@ -21,7 +21,7 @@ trait ControllerTrait {
         if(in_array($this->action, ["sublist", "reorder"])){
             $query->where([
                 'groups'    => $this->componPlugin,
-                'parent_id' => $this->params[0]
+                'parent_id' => $this->params[0],
             ])->orderBy("sort_order","asc");
         }else{
             $query->where([

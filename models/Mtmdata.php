@@ -11,8 +11,8 @@ class Mtmdata extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\Sortable;
 
-    public $table = 'mavitm_compon_mtmdata';
-    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    public $table       = 'mavitm_compon_mtmdata';
+    public $implement   = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
     public $rules = [];
 
@@ -33,7 +33,14 @@ class Mtmdata extends Model
         "tab"       => "Tab",
         "accordion" => "Accordion",
         "carousel"  => "Carousel",
-        "grid"      => "Grid"
+        "grid"      => "Grid",
+        "menu"      => "Menu",
+        "submenu"   => "Menu sub item"
+    ];
+
+    public $groupAlias = [
+        "submenu"   => "menus",
+        "menu"      => "menus"
     ];
 
     public function scopePluginGroups()
@@ -59,6 +66,9 @@ class Mtmdata extends Model
         if(!array_key_exists($this->groups, self::$groupOrtions)){
             //$this->groups = "carousel";
         }
+
+        $this->parent_type = 'componSingle';
+
     }
 
     public function getSublistBtnAttribute()
@@ -85,6 +95,15 @@ class Mtmdata extends Model
     public function getGroupStrAttribute()
     {
         return self::$groupOrtions[$this->groups];
+    }
+
+    public function getUrlGroupAttribute(){
+
+        if(!empty($this->groupAlias[$this->groups])){
+            return $this->groupAlias[$this->groups];
+        }
+        return $this->groups;
+
     }
 
     public function getParentColorAttribute()

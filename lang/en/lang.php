@@ -52,6 +52,7 @@
         'newItem'       => 'Add content',
         'reorder'       => 'Reorder',
         'edit'          => 'Edit sub content',
+        'captionDisplay'=> 'Title and description show'
     ],
     'grid' => [
         'tab'           => 'Grid',
@@ -68,4 +69,33 @@
         'mdSize'        => 'md col',
         'lgSize'        => 'lg col'
     ],
+    'menu' => [
+        'tab'           => 'Menu',
+        'description'   => 'Add Menu',
+        'parent_title'  => 'Menu groups',
+        'access_post'   => 'Manage the Menu',
+        'newGroup'      => 'Create group',
+        'newItem'       => 'Add Link',
+        'reorder'       => 'Reorder',
+        'edit'          => 'Edit sub content',
+        'detail_page'   => 'Page',
+        'external_url'  => 'External Url',
+        'id_attr'       => 'id attribute name',
+        'class_attr'    => 'css class attribute name or names',
+        'link_target'   => 'Window target (target)',
+        'target_self'   => 'Current window (_self)',
+        'target_blank'  => 'New window (_blank)',
+        'target_top'    => 'Top window (_top)',
+        'target_parent' => 'Parent window (_parent)',
+        'link_visible'  => 'Who can see',
+        'visible_all'   => 'All users',
+        'visible_registered'    => 'Registered',
+        'visible_guests'        => 'Guest',
+        'properties'    => 'Properties',
+        'slug'          => 'Slug',
+        'child_ul_class_attr'   => 'Childs ul/ol tags css class attribute name',
+        'parent_tag'    => 'Parent tag name',
+        'parent_tag_enable' => 'External ul/ol tag is added',
+        'slug_description'  => 'Menu active item value'
+    ]
 ];

@@ -42,7 +42,7 @@ class Tab extends ComponentBase
         if(!empty($result)){
             $return = array();
             foreach($result as $e){
-                $return[$e->id] = $e->id.' - '.$e->title." (".$e->group.")";
+                $return[$e->id] = $e->id.' - '.$e->title." (".$e->groups.")";
             }
         }
         return $return;
@@ -57,7 +57,7 @@ class Tab extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'tab', 'parent_id' => $this->currentParentId ])->get();
+        return Mtmdata::where([ 'groups' => 'menu', 'parent_type' => $this->currentParentId ])->get();
     }
 
 }

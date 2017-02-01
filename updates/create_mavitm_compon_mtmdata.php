@@ -12,7 +12,7 @@ class CreateMavitmComponMtmdata extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('parent_id')->nullable();
-            $table->string('group', 250)->nullable();
+            $table->string('groups', 250)->nullable();
             $table->string('title', 250)->nullable();
             $table->text('html_description')->nullable();
             $table->text('strdata')->nullable();
