@@ -3,6 +3,7 @@
 {% set carouselID = __SELF__.componUnique %}
 {% set width = __SELF__.componWidth %}
 {% set height = __SELF__.componHeight %}
+{% set captionDisplay = __SELF__.captionDisplay %}
 {% set x = 0 %}
 
 <div id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
@@ -28,10 +29,13 @@
             <div class="item {{ activeCss }}">
                 <img src="{{ child.carouselimg.thumb(width, height) }}" alt="{{ child.carouselimg.title|escape }}">
 
+                {% if captionDisplay == 1 %}
                 <div class="carousel-caption">
                     <h3>{{ child.title }}</h3>
                     <p>{{ child.html_description|raw }}</p>
                 </div>
+                {% endif %}
+
             </div>
             {% set x = x + 1 %}
         {% endfor %}
