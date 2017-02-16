@@ -83,7 +83,7 @@ fields:
                         type: dropdown
                         options:
                             1: 'Yes use external tag'
-                            0: 'Using no external tag'
+                            2: 'Using no external tag'
                     user_visible:
                           label: 'mavitm.compon::lang.menu.link_visible'
                           span: auto
