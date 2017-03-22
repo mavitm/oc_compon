@@ -53,11 +53,12 @@ class Tab extends ComponentBase
         $this->currentParentId = $this->page['currentParentId'] = $this->property('id');
         $this->componUnique = $this->page['componUnique'] = $this->componUnique.$this->currentParentId;
         $this->componChildren = $this->page['componChildren'] = $this->componChildrenLoads();
+
     }
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'menu', 'parent_type' => $this->currentParentId ])->get();
+        return Mtmdata::where([ 'groups' => 'tab', 'parent_id' => $this->currentParentId ])->get();
     }
 
 }
