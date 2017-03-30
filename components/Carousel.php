@@ -16,7 +16,8 @@ class Carousel extends ComponentBase
             $componChildren     = [],
             $componUnique       = 'componCarousel',
             $componWidth        = 1920,
-            $componHeight       = 640;
+            $componHeight       = 640,
+            $captionDisplay     = 0;
 
     public function componentDetails()
     {
@@ -79,6 +80,8 @@ class Carousel extends ComponentBase
         if(intval($this->property('imgWidth'))){
             $this->componWidth      = $this->page['componWidth']        = intval($this->property('imgWidth'));
         }
+
+        $this->captionDisplay      = $this->page['captionDisplay']        = intval($this->property('captionDisplay'));
 
         if(intval($this->property('imgHeight'))){
             $this->componHeight     = $this->page['componHeight']       = intval($this->property('imgHeight'));
