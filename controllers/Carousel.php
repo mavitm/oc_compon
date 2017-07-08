@@ -15,16 +15,18 @@ class Carousel extends Controller
     public $implement = [
         'Backend\Behaviors\ListController',
         'Backend\Behaviors\FormController',
-        'Backend\Behaviors\ReorderController'
+        'Backend\Behaviors\ReorderController',
+        'Backend.Behaviors.RelationController'
     ];
 
     //public $listConfig = 'config_list.yaml';
     public $listConfig = [
-        'list'      => 'config_list.yaml',
-        'subList'   => 'config_sub_list.yaml'
+        'list'                  => 'config_list.yaml',
+        'subList'               => 'config_sub_list.yaml'
     ];
     public $formConfig          = 'config_form.yaml';
     public $reorderConfig       = 'config_reorder.yaml';
+    public $relationConfig      = 'config_relation.yaml';
 
     public $requiredPermissions = [
         'mavitm.compon.access_carousel'
@@ -67,6 +69,8 @@ class Carousel extends Controller
                         'default' => 'carousel'
                     ],
                 ]);
+
+                $form->removeField("subitems");
             }
         }
 

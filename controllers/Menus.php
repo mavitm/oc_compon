@@ -25,7 +25,6 @@ class Menus extends Controller
         'subList'           => 'config_sub_list.yaml'
     ];
     public $formConfig      = 'config_sub_form.yaml';
-
     public $reorderConfig   = 'config_reorder.yaml';
 
     public $requiredPermissions = [
@@ -34,11 +33,8 @@ class Menus extends Controller
 
     public function __construct()
     {
-
         $this->vars['parentlist'] = true;
-
         parent::__construct();
-
         BackendMenu::setContext('Mavitm.Compon', 'compon', 'menu_menu');
     }
 

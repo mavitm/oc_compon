@@ -10,7 +10,7 @@ scopes:
         conditions: groups in (:filtered)
         modelClass: Mavitm\Compon\Models\Mtmdata
         options:
-            scopePluginGroups
+            pluginGroups
 
     parent:
         label: Parent

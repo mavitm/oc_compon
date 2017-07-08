@@ -32,23 +32,23 @@ class Plugin extends PluginBase
     {
         return [
             'mavitm.compon.access_accordion' => [
-                'tab'   => 'mavitm.compon::lang.accordion.tab',
+                'tab'   => 'mavitm.compon::lang.plugin.name',
                 'label' => 'mavitm.compon::lang.accordion.access_post'
             ],
             'mavitm.compon.access_carousel' => [
-                'tab'   => 'mavitm.compon::lang.carousel.tab',
+                'tab'   => 'mavitm.compon::lang.plugin.name',
                 'label' => 'mavitm.compon::lang.carousel.access_post'
             ],
             'mavitm.compon.access_tab' => [
-                'tab'   => 'mavitm.compon::lang.tab.tab',
+                'tab'   => 'mavitm.compon::lang.plugin.name',
                 'label' => 'mavitm.compon::lang.tab.access_post'
             ],
             'mavitm.compon.access_grid' => [
-                'tab'   => 'mavitm.compon::lang.grid.tab',
+                'tab'   => 'mavitm.compon::lang.plugin.name',
                 'label' => 'mavitm.compon::lang.grid.access_post'
             ],
             'mavitm.compon.access_menu' => [
-                'tab'   => 'mavitm.compon::lang.menu.tab',
+                'tab'   => 'mavitm.compon::lang.plugin.name',
                 'label' => 'mavitm.compon::lang.menu.access_post'
             ]
         ];

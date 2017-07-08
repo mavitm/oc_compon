@@ -9,33 +9,33 @@
 
     <ol class="carousel-indicators">
         {% for child in children %}
-            {% set activeCss = 'noActive' %}
-            {% if x < 1 %}
-                {% set activeCss = 'active' %}
-            {% endif %}
-            <li data-target="#{{ carouselID }}" data-slide-to="{{ x }}" class="{{ activeCss }}"></li>
-            {% set x = x + 1 %}
+        {% set activeCss = 'noActive' %}
+        {% if x < 1 %}
+        {% set activeCss = 'active' %}
+        {% endif %}
+        <li data-target="#{{ carouselID }}" data-slide-to="{{ x }}" class="{{ activeCss }}"></li>
+        {% set x = x + 1 %}
         {% endfor %}
     </ol>
 
     {% set x = 0 %}
     <div class="carousel-inner" role="listbox">
         {% for child in children %}
-            {% set activeCss = 'noActive' %}
-            {% if x < 1 %}
-                {% set activeCss = 'active' %}
-            {% endif %}
-            <div class="item {{ activeCss }}">
-                <img src="{{ child.carouselimg.getThumb(width, height, 'crop') }}" alt="{{ child.carouselimg.title|escape }}">
+        {% set activeCss = 'noActive' %}
+        {% if x < 1 %}
+        {% set activeCss = 'active' %}
+        {% endif %}
+        <div class="item {{ activeCss }}">
+            <img src="{{ child.carouselimg.getThumb(width, height, 'crop') }}" alt="{{ child.carouselimg.title|escape }}">
 
-                {% if captionDisplay == 1 %}
-                <div class="carousel-caption">
-                    <h3>{{ child.title }}</h3>
-                    <p>{{ child.html_description|raw }}</p>
-                </div>
-                {% endif %}
+            {% if captionDisplay == 1 %}
+            <div class="carousel-caption">
+                <h3>{{ child.title }}</h3>
+                <p>{{ child.html_description|raw }}</p>
             </div>
-            {% set x = x + 1 %}
+            {% endif %}
+        </div>
+        {% set x = x + 1 %}
         {% endfor %}
     </div>
 

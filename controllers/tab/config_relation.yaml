@@ -1,0 +1,8 @@
+sublist:
+    label: Alt değerler
+    view:
+        list: $/mavitm/compon/models/mtmdata/subList.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/mavitm/compon/models/mtmdata/subForm.yaml
+        recordsPerPage: 100

@@ -15,7 +15,8 @@ class Grid extends Controller
     public $implement = [
         'Backend\Behaviors\ListController',
         'Backend\Behaviors\FormController',
-        'Backend\Behaviors\ReorderController'
+        'Backend\Behaviors\ReorderController',
+        'Backend.Behaviors.RelationController'
     ];
 
     //public $listConfig = 'config_list.yaml';
@@ -24,8 +25,8 @@ class Grid extends Controller
         'subList'           => 'config_sub_list.yaml'
     ];
     public $formConfig      = 'config_form.yaml';
-
     public $reorderConfig   = 'config_reorder.yaml';
+    public $relationConfig  = 'config_relation.yaml';
 
     public $requiredPermissions = [
         'mavitm.compon.access_grid'

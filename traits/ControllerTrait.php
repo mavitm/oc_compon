@@ -45,7 +45,7 @@ trait ControllerTrait {
             return redirect()->to(Backend::url('mavitm/compon/'.$this->componPlugin));
         }
 
-        $parent = Mtmdata::where("id",$this->params[0])->first();
+        $parent = Mtmdata::find($this->params[0]);
 
         $this->pageTitle            = $parent->title;
         $this->vars['parentlist']   = false;

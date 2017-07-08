@@ -81,7 +81,7 @@ class Carousel extends ComponentBase
             $this->componWidth      = $this->page['componWidth']        = intval($this->property('imgWidth'));
         }
 
-        $this->captionDisplay      = $this->page['captionDisplay']        = intval($this->property('captionDisplay'));
+        $this->captionDisplay      = $this->page['captionDisplay']      = intval($this->property('captionDisplay'));
 
         if(intval($this->property('imgHeight'))){
             $this->componHeight     = $this->page['componHeight']       = intval($this->property('imgHeight'));

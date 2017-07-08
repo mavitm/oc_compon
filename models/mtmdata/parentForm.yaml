@@ -14,3 +14,9 @@ fields:
         size: large
         span: full
         type: richeditor
+    subitems:
+        span: full
+        path: $/mavitm/compon/models/mtmdata/_sublist.htm
+        context:
+            - update
+        type: partial

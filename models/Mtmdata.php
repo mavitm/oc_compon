@@ -43,11 +43,22 @@ class Mtmdata extends Model
         "menu"      => "menus"
     ];
 
-    public function scopePluginGroups()
+    public $hasMany = [
+        "sublist" => ["Mavitm\Compon\Models\Mtmdata", "key" => "parent_id", "otherKey" => "id"]
+    ];
+
+    public function pluginGroups()
     {
         //return collect(self::$groupOrtions);
         return self::$groupOrtions;
     }
+
+//    public function scopeSubItems($query, $parentID = null){
+//        if(!null){
+//            return $query->where("parent_id", "=", $parentID);
+//        }
+//        return $query;
+//    }
 
     public function beforeSave()
     {
@@ -56,10 +67,7 @@ class Mtmdata extends Model
         }
 
         if($this->parent_id > 0){
-            $parent = $this->select("id","title","groups")->where(["id"=>$this->parent_id])->first();
-
-            //$sub = $this->where("parent_id",$this->parent_id)->orderBy("sort_order","desc")->first();
-
+            $parent = $this->find($this->parent_id);
             $this->groups = $parent->groups;
         }
 
@@ -68,7 +76,6 @@ class Mtmdata extends Model
         }
 
         $this->parent_type = 'componSingle';
-
     }
 
     public function getSublistBtnAttribute()
@@ -117,7 +124,9 @@ class Mtmdata extends Model
     public function getCarouselimagesAttribute()
     {
         $project = $this->find($this->id);
-        return '<img src="'.$project->carouselimg->getThumb(120, 50).'" />';
+        if($project){
+            return '<img src="'.$project->carouselimg->getThumb(120, 50).'" />';
+        }
     }
 
     public function getParentIdOptions(){
@@ -139,10 +148,10 @@ class Mtmdata extends Model
         return $return;
     }
 
-    public function parentIDReturnArray($controller)
+    public function parentIDReturnArray($controllerName)
     {
         $return = [0 => "Parent null"];
-        $result = $this->select("id","title","groups")->where([ 'groups' => $controller, 'parent_id' => 0 ])->get();
+        $result = $this->select("id","title","groups")->where([ 'groups' => $controllerName, 'parent_id' => 0 ])->get();
 
         if(!empty($result)){
             $return = array();
