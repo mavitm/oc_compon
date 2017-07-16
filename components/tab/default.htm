@@ -45,7 +45,7 @@
 
             <div id="{{ currentItemID }}"
                  class="tab-pane fade {{ activeCss }} {{ openClose }}"
-                 aria-labelledby="{{ currentItemID }}-tab" role="tabpanel"> {{ child.html_description|raw }} </div>
+                 aria-labelledby="{{ currentItemID }}-tab" role="tabpanel"> {{ child.html|raw }} </div>
 
             {% set x = x + 1 %}
         {% endfor %}

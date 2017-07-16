@@ -37,6 +37,8 @@ class Menu extends ComponentBase{
     public $activeSlug;
 
 
+    use \Mavitm\Compon\Traits\ComponentsTrait;
+
     public function componentDetails()
     {
         return [

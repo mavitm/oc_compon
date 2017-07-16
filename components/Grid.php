@@ -18,6 +18,7 @@ class Grid extends ComponentBase
 
             $xs, $sm, $md, $lg;
 
+    use \Mavitm\Compon\Traits\ComponentsTrait;
 
     public function componentDetails()
     {
@@ -92,7 +93,11 @@ class Grid extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'grid', 'parent_id' => $this->currentParentId ])->get();
+        $childs = Mtmdata::where([ 'groups' => 'grid', 'parent_id' => $this->currentParentId ])->get();
+        $childs->each(function ($child){
+            $child->setHtml($child->html_description, $this->controller);
+        });
+        return $childs;
     }
 
 }

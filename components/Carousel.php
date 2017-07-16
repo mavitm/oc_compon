@@ -19,6 +19,8 @@ class Carousel extends ComponentBase
             $componHeight       = 640,
             $captionDisplay     = 0;
 
+    use \Mavitm\Compon\Traits\ComponentsTrait;
+
     public function componentDetails()
     {
         return [
@@ -86,6 +88,7 @@ class Carousel extends ComponentBase
         if(intval($this->property('imgHeight'))){
             $this->componHeight     = $this->page['componHeight']       = intval($this->property('imgHeight'));
         }
+        
     }
 
     public function imgThumb($obj)
@@ -95,7 +98,11 @@ class Carousel extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'carousel', 'parent_id' => $this->currentParentId ])->get();
+        $childs =  Mtmdata::where([ 'groups' => 'carousel', 'parent_id' => $this->currentParentId ])->get();
+        $childs->each(function ($child){
+            $child->setHtml($child->html_description, $this->controller);
+        });
+        return $childs;
     }
 
 }

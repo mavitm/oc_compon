@@ -8,6 +8,7 @@ namespace Mavitm\Compon\Components;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use Mavitm\Compon\Models\Mtmdata;
+use PhpParser\Node\Expr\Array_;
 
 class Accordion extends ComponentBase
 {
@@ -24,6 +25,8 @@ class Accordion extends ComponentBase
                                     "panelWarning"     => "panel-warning",
                                     "panelDanger"      => "panel-danger"
                                   ];
+
+    use \Mavitm\Compon\Traits\ComponentsTrait;
 
     public function componentDetails()
     {
@@ -86,11 +89,16 @@ class Accordion extends ComponentBase
 
         $this->componUnique = $this->page['componUnique'] = $this->componUnique.$this->currentParentId;
         $this->componChildren = $this->page['componChildren'] = $this->componChildrenLoads();
+
     }
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'accordion', 'parent_id' => $this->currentParentId ])->get();
+        $childs = Mtmdata::where([ 'groups' => 'accordion', 'parent_id' => $this->currentParentId ])->get();
+        $childs->each(function ($child){
+            $child->setHtml($child->html_description, $this->controller);
+        });
+        return $childs;
     }
 
 }

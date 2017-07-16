@@ -2,6 +2,7 @@
 
 use Model;
 use Backend;
+use Mavitm\Compon\Classes\Componfilter;
 
 /**
  * Model
@@ -53,13 +54,6 @@ class Mtmdata extends Model
         return self::$groupOrtions;
     }
 
-//    public function scopeSubItems($query, $parentID = null){
-//        if(!null){
-//            return $query->where("parent_id", "=", $parentID);
-//        }
-//        return $query;
-//    }
-
     public function beforeSave()
     {
         if(!is_numeric($this->parent_id) || empty($this->parent_id)){
@@ -110,7 +104,6 @@ class Mtmdata extends Model
             return $this->groupAlias[$this->groups];
         }
         return $this->groups;
-
     }
 
     public function getParentColorAttribute()
@@ -146,6 +139,10 @@ class Mtmdata extends Model
             }
         }
         return $return;
+    }
+
+    public function setHtml($text, $controller){
+        return $this->html = Componfilter::instance()->componTextFinder($text, $controller);
     }
 
     public function parentIDReturnArray($controllerName)

@@ -16,6 +16,8 @@ class Tab extends ComponentBase
             $componChildren     = [],
             $componUnique       = 'componTab';
 
+    use \Mavitm\Compon\Traits\ComponentsTrait;
+
     public function componentDetails()
     {
         return [
@@ -58,9 +60,13 @@ class Tab extends ComponentBase
 
     protected function componChildrenLoads()
     {
-        return Mtmdata::where([ 'groups' => 'tab', 'parent_id' => $this->currentParentId ])->get();
-    }
+        $childs = Mtmdata::where([ 'groups' => 'tab', 'parent_id' => $this->currentParentId ])->get();
 
+        $childs->each(function ($child){
+            $child->setHtml($child->html_description, $this->controller);
+        });
+        return $childs;
+    }
 }
 
 

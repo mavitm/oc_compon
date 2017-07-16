@@ -9,7 +9,9 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-
+defaultSort:
+    column: sort_order
+    direction: desc
 recordsPerPage: 50
 showCheckboxes: true
 showSetup: true
