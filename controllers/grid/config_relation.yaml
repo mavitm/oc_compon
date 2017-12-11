@@ -1,5 +1,5 @@
 sublist:
-    label: Alt değerler
+    label: 'mavitm.compon::lang.compon.sublist'
     view:
         list: $/mavitm/compon/models/mtmdata/subList.yaml
         toolbarButtons: create|delete
