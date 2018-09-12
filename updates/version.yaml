@@ -16,4 +16,6 @@
     - 'Tab application issue resolved'
     - 'carousel closed captioning added'
 1.2.2:
-    - 'Added controller relation'    
+    - 'Added controller relation'
+1.2.3:
+    - 'Carousel fields modification'

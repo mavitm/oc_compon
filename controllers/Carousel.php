@@ -1,6 +1,9 @@
 <?php namespace Mavitm\Compon\Controllers;
 
 use Flash;
+use ApplicationException;
+use Yaml;
+use File;
 use Redirect;
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -49,26 +52,30 @@ class Carousel extends Controller
             if ($this->params[0] == "subcreate" || ($this->action == "update" && !empty($this->params[1]))) {
                 $this->vars['parentlist'] = false;
 
-                $form->addFields([
-                    'parent_id' => [
-                        'type' => 'dropdown',
-                        'label' => 'mavitm.compon::lang.compon.parent_id',
-                        'default' => $this->params[1]
-                    ],
-                    'groups' => [
-                        'label' => 'mavitm.compon::lang.compon.group',
-                        'span' => 'right',
-                        'type' => 'dropdown',
-                        'default' => 'carousel'
-                    ],
-                    'carouselimg' => [
-                        'label' => 'mavitm.compon::lang.carousel.image',
-                        'span' => 'full',
-                        'type' => 'fileupload',
-                        'mode' => 'image',
-                        'default' => 'carousel'
-                    ],
-                ]);
+//                $form->addFields([
+//                    'parent_id' => [
+//                        'type' => 'dropdown',
+//                        'label' => 'mavitm.compon::lang.compon.parent_id',
+//                        'default' => $this->params[1]
+//                    ],
+//                    'groups' => [
+//                        'label' => 'mavitm.compon::lang.compon.group',
+//                        'span' => 'right',
+//                        'type' => 'dropdown',
+//                        'default' => 'carousel'
+//                    ],
+//                    'carouselimg' => [
+//                        'label' => 'mavitm.compon::lang.carousel.image',
+//                        'span' => 'full',
+//                        'type' => 'fileupload',
+//                        'mode' => 'image',
+//                        'default' => 'carousel'
+//                    ],
+//                ]);
+
+                $configFile = plugins_path('mavitm/compon/models/mtmdata/imgForm.yaml');
+                $config = Yaml::parse(File::get($configFile));
+                $form->addFields($config['fields']);
 
                 $form->removeField("subitems");
             }

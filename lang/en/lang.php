@@ -52,7 +52,10 @@
         'newItem'       => 'Add content',
         'reorder'       => 'Reorder',
         'edit'          => 'Edit sub content',
-        'captionDisplay'=> 'Title and description show'
+        'captionDisplay'=> 'Title and description show',
+        'otherValues'   => 'Other Values',
+        'key'           => 'Key',
+        'value'         => 'Value',
     ],
     'grid' => [
         'tab'           => 'Grid',

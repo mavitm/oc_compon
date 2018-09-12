@@ -1,7 +1,7 @@
 <?php return [
     'plugin' => [
         'name' => 'compon',
-        'description' => 'Boostrap carousel, accordion and tab plugin',
+        'description'           => 'Boostrap carousel, accordion and tab plugin',
     ],
     'compon' => [
         'insert_id' => 'ID',
@@ -52,7 +52,10 @@
         'newItem' => 'Alt içerik ekle',
         'reorder' => 'Yeniden sırala',
         'edit' => 'Alt bilgisi düzenle',
-        'captionDisplay'=> 'Başlık ve açıklamayı göster'
+        'captionDisplay'=> 'Başlık ve açıklamayı göster',
+        'otherValues'   => 'Diğer değerler',
+        'key'           => 'Anahtar',
+        'value'         => 'Değeri',
     ],
     'grid' => [
         'tab'           => 'Grid',

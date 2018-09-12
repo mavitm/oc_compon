@@ -6,7 +6,6 @@ use Cms\Classes\Controller;
 use Cms\Classes\CodeBase;
 use Mavitm\Compon\Models\Mtmdata as ComponModel;
 
-
 class Componfilter{
 
     public $codeBase, $controller;

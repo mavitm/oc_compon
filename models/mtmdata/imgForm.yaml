@@ -1,15 +1,19 @@
 fields:
     title:
         label: 'mavitm.compon::lang.compon.title'
-        oc.commentPosition: above
         span: auto
         required: 1
         type: text
     parent_id:
-            label: 'mavitm.compon::lang.compon.parent_id'
-            span: auto
-            required: 1
-            type: dropdown
+        label: 'mavitm.compon::lang.compon.parent_id'
+        span: full
+        required: 1
+        type: dropdown
+    html_description:
+        label: 'mavitm.compon::lang.compon.description'
+        size: large
+        span: full
+        type: richeditor
     carouselimg:
         label: 'File upload'
         mode: image
@@ -20,8 +24,18 @@ fields:
         span: full
         required: 1
         type: fileupload
-    html_description:
-        label: 'mavitm.compon::lang.compon.description'
-        size: large
+    'strdata[config]':
+        label: 'mavitm.compon::lang.carousel.otherValues'
+        prompt: 'Add new item'
         span: full
-        type: richeditor
+        type: repeater
+        form:
+            fields:
+                index:
+                    label: 'mavitm.compon::lang.carousel.key'
+                    span: auto
+                    type: text
+                value:
+                    label: 'mavitm.compon::lang.carousel.value'
+                    span: auto
+                    type: text
