@@ -9,7 +9,7 @@ class AddParentTypeFieldToTable extends Migration
     {
         Schema::table('mavitm_compon_mtmdata', function($table)
         {
-            $table->string('parent_type', 200)->index();
+            $table->string('parent_type', 200)->nullable()->index();
         });
     }
 
